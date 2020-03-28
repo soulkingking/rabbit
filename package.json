@@ -1,0 +1,22 @@
+{
+  "name": "rabbit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prompts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soulkingking/rabbit.git"
+  },
+  "keywords": [
+    "rabbit"
+  ],
+  "author": ".Soul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soulkingking/rabbit/issues"
+  },
+  "homepage": "https://github.com/soulkingking/rabbit#readme"
+}
