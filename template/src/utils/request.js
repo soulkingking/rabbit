@@ -1,6 +1,17 @@
+/*
+ * @Author: .Soul
+ * @Date: 2020-06-16 14:55:03
+ * @Last Modified by: .Soul
+ * @Last Modified time: 2020-06-29 09:41:47
+ */
+
 import axios from "axios";
-import { Message } from "element-ui";
+import store from "@/store";
 import { baseURL } from "@/config";
+import API from "@/config/Api";
+import router from "@/router";
+import { Message } from "element-ui";
+
 
 // 创建axios实例
 const instance = axios.create({
@@ -12,14 +23,15 @@ const instance = axios.create({
 instance.interceptors.request.use(
   config => {
     // 在发送请求之前做些什么
-    //   if (store.getters.token) {
-    //     config.headers['X-Token'] = getToken()
-    //   }
+    // if (config.url != API.login && config.url != API.register) {
+    //     if (store.state.setting.token) {
+    //         config.headers["token"] = store.state.setting.token;
+    //     }
+    // }
     return config;
   },
   error => {
     //对请求错误做些什么
-    console.log(error);
     return Promise.reject(error);
   }
 );
@@ -29,21 +41,52 @@ instance.interceptors.response.use(
   response => {
     // 对响应数据做点什么
     const res = response.data;
-    if (response.status == 200) {
-      return res;
+    if (res.code == 200) {
+      return [null, res];
     } else {
-      return Promise.reject(new Error(res.message || "Error"));
+      Message({
+        message: res.failMessage,
+        type: "error",
+        duration: 5 * 1000
+      });
+      return [res, null];
     }
   },
   error => {
     // 对响应错误做点什么
-    console.log("err" + error);
-    Message({
-      message: error.message,
-      type: "error",
-      duration: 5 * 1000
-    });
-    return Promise.reject(error);
+
+    if (error.response) {
+      if (error.response.status === 401) {
+        // 这种情况一般调到登录页
+        Dialog.confirm({
+          title: "提示",
+          message: "令牌过期，请重新登录"
+        })
+          .then(() => {
+            // on confirm
+            router.replace({ path: "/login" });
+          })
+          .catch(() => {
+            // on cancel
+          });
+      } else if (error.response.status === 403) {
+        // 提示无权限等
+        Message({
+          message: "无操作权限",
+          type: "error",
+          duration: 5 * 1000
+        });
+      } else {
+        // 其他错误处理
+        Message({
+          message: "服务器发生错误" ,
+          type: "error",
+          duration: 5 * 1000
+        });
+      }
+    }
+
+    return Promise.resolve([error, null]);
   }
 );
 export default instance;

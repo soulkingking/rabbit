@@ -3,7 +3,10 @@
     <el-header>
       <el-row :gutter="0">
         <el-col :span="6" :sm="8" v-if="screenWidth > 768">
-          <div class="logo" :style="{ width: isCollapse ? '4.0625rem' : '12.5rem' }">
+          <div
+            class="logo"
+            :style="{ width: isCollapse ? '4.0625rem' : '12.5rem' }"
+          >
             logo
           </div>
           <el-row>
@@ -46,7 +49,7 @@
     <el-container style="padding-top:60px">
       <el-aside style="width:auto" v-if="screenWidth > 768">
         <el-menu
-          default-active="rectemplate"
+          :default-active="$route.path"
           class="el-menu-vertical-demo"
           @open="handleCollapse"
           @close="handleCollapse"
@@ -72,7 +75,7 @@
         size="200px"
       >
         <el-menu
-          default-active="rectemplate"
+          :default-active="$route.path"
           class="el-menu-vertical-demo"
           :collapse="false"
           :router="true"
@@ -154,17 +157,15 @@ export default {
 };
 </script>
 
-
 <style lang="less" scoped>
-
 .el-container {
   height: 100%;
 }
 .el-header {
-  padding: 0 ;
-  background: @primary-light-blue;
+  padding: 0;
+  background: @blue-6;
   text-align: center;
-  box-shadow: 0 .0625rem .125rem 0 #0000001a;
+  box-shadow: 0 0.0625rem 0.125rem 0 #0000001a;
   position: fixed;
   top: 0;
   left: 0;
@@ -182,7 +183,7 @@ export default {
   float: left;
   &::after {
     content: "";
-    width: .0625rem;
+    width: 0.0625rem;
     height: 1.75rem;
     margin: 1rem 0;
     background: #fff;

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { getLine } from "@/api/line";
+
 export default {
   name: "RecTemplate",
   data() {
@@ -18,13 +18,10 @@ export default {
   },
   computed: {},
   methods: {
-    async getLineData() {
-      let res = await getLine();
-      console.log(res);
-    }
+   
   },
   created() {
-    this.getLineData();
+
   }
 };
 </script>

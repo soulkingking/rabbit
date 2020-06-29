@@ -1,12 +1,18 @@
-const BASE_URL={
-    prod:'',
-    dev:'http://192.168.88.241:7400/mock/17'
+/*
+ * @Author: .Soul
+ * @Date: 2020-06-16 14:54:20
+ * @Last Modified by:   .Soul
+ * @Last Modified time: 2020-06-16 14:54:20
+ */
+
+const BASE_URL = {
+  prod: "",
+  dev: ""
+};
+
+function baseURL(env) {
+  return BASE_URL[env];
 }
 
-function baseURL(env){
-    return BASE_URL[env];
-}
-
-export {
-    baseURL
-}
+const BASE_NAME = "rabbit";
+export { baseURL, BASE_NAME };

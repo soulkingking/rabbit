@@ -93,10 +93,10 @@ const validateWeixin = (rule, value, callback) => {
   }
 };
 
-export  {
-    validateMobilePhone,
-    validateEmail,
-    validatePass,
-    validatePhone,
-    validateWeixin
-}
+export {
+  validateMobilePhone,
+  validateEmail,
+  validatePass,
+  validatePhone,
+  validateWeixin
+};

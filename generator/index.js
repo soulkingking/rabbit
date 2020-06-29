@@ -3,27 +3,37 @@ module.exports = (api, options, rootOptions) => {
   api.extendPackage({
     dependencies: {
       "animate.css": "^3.7.2",
-      "core-js": "^3.6.4",
-      echarts: "^4.7.0",
+      "core-js": "^3.6.5",
+      "date-fns": "^2.14.0",
+      "echarts": "^4.7.0",
       "element-ui": "^2.13.0",
+      "swiper": "^5.4.5",
       "v-charts": "^1.19.0",
+      "vue-awesome-swiper": "^4.1.1",
       "vue-router": "^3.1.5",
-      vuex: "^3.1.2"
+      "vue": "^2.6.11",
+      "vuex": "^3.1.2",
+      "vuex-persistedstate": "^3.0.1"
     },
     devDependencies: {
-      "@vue/cli-plugin-babel": "~4.2.0",
-      "@vue/cli-plugin-eslint": "~4.2.0",
+      "@babel/polyfill": "^7.10.1",
+      "@vue/cli-plugin-babel": "~4.4.0",
+      "@vue/cli-plugin-eslint": "~4.4.0",
       "@vue/cli-plugin-router": "~4.2.0",
       "@vue/cli-plugin-vuex": "~4.2.0",
+      "@vue/cli-service": "~4.4.0",
       "@vue/eslint-config-prettier": "^6.0.0",
-      "babel-eslint": "^10.0.3",
-      eslint: "^6.7.2",
-      "eslint-plugin-prettier": "^3.1.1",
-      "eslint-plugin-vue": "^6.1.2",
-      prettier: "^1.19.1",
-      axios: "^0.19.2",
+      "axios": "^0.19.2",
+      "babel-eslint": "^10.1.0",
+      "eslint": "^6.7.2",
+      "eslint-plugin-prettier": "^3.1.3",
+      "eslint-plugin-vue": "^6.2.2",
+      "less": "^3.0.4",
+      "less-loader": "^5.0.0",
+      "prettier": "^1.19.1",
       "style-resources-loader": "^1.3.3",
-      "vue-cli-plugin-style-resources-loader": "~0.1.4"
+      "vue-cli-plugin-style-resources-loader": "~0.1.4",
+      "vue-template-compiler": "^2.6.11"
     }
   });
 

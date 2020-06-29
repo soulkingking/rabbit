@@ -3,7 +3,7 @@
     <el-col :span="8" :xs="24" :sm="18" :md="8">
       <el-card class="login_form">
         <div class="login_logo">logo</div>
-        <h2 class="title">{{title}}</h2>
+        <h2 class="title">{{ title }}</h2>
         <el-tabs v-model="activeName" @tab-click="handleClick">
           <el-tab-pane label="登录" name="login">
             <el-form
@@ -14,7 +14,11 @@
               ref="login"
             >
               <el-form-item prop="username">
-                <el-input v-model="loginForm.username" placeholder="用户名" prefix-icon="el-icon-user"></el-input>
+                <el-input
+                  v-model="loginForm.username"
+                  placeholder="用户名"
+                  prefix-icon="el-icon-user"
+                ></el-input>
               </el-form-item>
               <el-form-item prop="password">
                 <el-input
@@ -25,7 +29,9 @@
                 ></el-input>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" @click="onLogin" class="login_btn">登录</el-button>
+                <el-button type="primary" @click="onLogin" class="login_btn"
+                  >登录</el-button
+                >
               </el-form-item>
             </el-form>
           </el-tab-pane>
@@ -72,7 +78,9 @@
                 ></el-input>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" @click="onRegister" class="login_btn">注册</el-button>
+                <el-button type="primary" @click="onRegister" class="login_btn"
+                  >注册</el-button
+                >
               </el-form-item>
             </el-form>
           </el-tab-pane>
@@ -181,7 +189,7 @@ export default {
   width: 6.25rem;
   height: 6.25rem;
   border-radius: 50%;
-  background: @bg-logo;
+  background: @blue-6;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   text-align: center;
   line-height: 6.25rem;
